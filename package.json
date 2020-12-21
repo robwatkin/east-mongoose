@@ -4,6 +4,8 @@
   "description": "Mongoose adapter for the East DB migration tool",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,5 +15,10 @@
     "mongoose"
   ],
   "author": "Rob Watkin <robwatkin@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^14.14.14",
+    "typescript": "^4.1.3"
+  }
 }

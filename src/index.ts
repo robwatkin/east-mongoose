@@ -1,15 +1,13 @@
 import path from "path";
 
-class Adapter {
-  params: {};
+export class Adapter {
+  params: Record<string, unknown>;
 
-  constructor(params: {}) {
+  constructor(params: Record<string, unknown>) {
     this.params = params;
   }
 
-  getTemplatePath() {
+  getTemplatePath(): string {
     return path.join(__dirname, 'migrationTemplates', 'promises.js');
-  };
-
-
+  }
 }

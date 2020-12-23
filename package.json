@@ -2,9 +2,9 @@
   "name": "east-mongoose",
   "version": "0.1.0",
   "description": "Mongoose adapter for the East DB migration tool",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc && cp -a migrationTemplates dist",
     "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/**/*.ts",
@@ -18,12 +18,18 @@
   ],
   "author": "Rob Watkin <robwatkin@gmail.com>",
   "license": "MIT",
+
   "dependencies": {},
+  "peerDependencies": {
+    "mongoose": "^5.11.8"
+  },
   "devDependencies": {
     "@types/node": "^14.14.14",
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
+    "east": "^2.0.1",
     "eslint": "^7.16.0",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "mongoose": "^5.11.8"
   }
 }

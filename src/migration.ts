@@ -9,5 +9,3 @@ const MigrationSchema: Schema = new Schema({
 });
 
 export const Migration: Model<IMigration> = model('_Migration', MigrationSchema);
-
-console.log("migration");

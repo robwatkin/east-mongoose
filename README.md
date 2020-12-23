@@ -1,6 +1,6 @@
 # East Mongoose
 
-This is a [mogoose](https://mongoosejs.com/) adapter for the [east](https://github.com/okv/east) database migration tool. It has been influenced by the East [mongo](https://github.com/okv/east-mongo) adapter. This adapter is written and currently targets typescript projects.
+This is a [Mongoose](https://mongoosejs.com/) adapter for the [East](https://github.com/okv/east) database migration tool. It has been influenced by the East [mongo](https://github.com/okv/east-mongo) adapter. This adapter is written and currently targets typescript projects.
 
 Migrations receive an object with the following properties:
 * `db` - an instance of Mongoose [Connection](https://mongoosejs.com/docs/api/connection.html)

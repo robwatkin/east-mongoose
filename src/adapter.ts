@@ -70,13 +70,11 @@ class MongooseAdapter implements Adapter<Props> {
   markExecuted(name: string): Promise<void> {
     return Promise.resolve()
       .then(() => Migration.replaceOne({ name: name }, { name: name }, { upsert: true }))
-      .then(result => console.log("markExecuted", result))
   }
 
   unmarkExecuted(name: string): Promise<void> {
     return Promise.resolve()
       .then(() => Migration.deleteOne({ name: name }))
-      .then(result => console.log("unmarkExecuted", result));
   }
 }
 

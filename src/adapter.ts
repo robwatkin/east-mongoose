@@ -5,7 +5,7 @@ import { Connection, connect, connection, disconnect } from "mongoose";
 import { Migration } from "./migration"
 
 interface Props {
-  mongooseConnection: Connection;
+  db: Connection;
 }
 
 class MongooseAdapter implements Adapter<Props> {
@@ -41,7 +41,7 @@ class MongooseAdapter implements Adapter<Props> {
         db.once("open", async () => {
           console.log("MongooseAdapter connected");
           this.db = db;
-          resolve({ mongooseConnection: db });
+          resolve({ db });
         });
       } catch (error) {
         console.log("MongooseAdapter error", error);
@@ -70,13 +70,13 @@ class MongooseAdapter implements Adapter<Props> {
   markExecuted(name: string): Promise<void> {
     return Promise.resolve()
       .then(() => Migration.replaceOne({ name: name }, { name: name }, { upsert: true }))
-      .then(result => console.log("result", result))
+      .then(result => console.log("markExecuted", result))
   }
 
   unmarkExecuted(name: string): Promise<void> {
     return Promise.resolve()
       .then(() => Migration.deleteOne({ name: name }))
-      .then(result => console.log("result", result));
+      .then(result => console.log("unmarkExecuted", result));
   }
 }
 

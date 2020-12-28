@@ -44,7 +44,7 @@ class MongooseAdapter implements Adapter<Props> {
           resolve({ db });
         });
       } catch (error) {
-        console.log("MongooseAdapter error", error);
+        console.log("MongooseAdapter error", error.toString());
         reject(error);
       }
     });

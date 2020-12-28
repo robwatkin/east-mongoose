@@ -16,5 +16,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-    }
+    },
+    "ignorePatterns": ["*.js",  "src/**/*.js", "test/**/*.js"],
 };

@@ -2,7 +2,7 @@ import { Adapter } from "east";
 import path from "path";
 import { Connection, connect, connection, disconnect } from "mongoose";
 
-import { Migration } from "./migration"
+import { Migration, IMigration } from "./migration"
 
 interface Props {
   db: Connection;
@@ -64,18 +64,19 @@ class MongooseAdapter implements Adapter<Props> {
   getExecutedMigrationNames(): Promise<string[]> {
     return Promise.resolve()
       .then(async () => Migration.find())
-      .then((items) => items.map((item) => item.name))
+      .then((items: IMigration[]) => items.map((item) => item.name))
   }
 
   markExecuted(name: string): Promise<void> {
-    return Promise.resolve()
-      .then(() => Migration.replaceOne({ name: name }, { name: name }, { upsert: true }))
+    return Migration.replaceOne({ name: name }, { name: name }, { upsert: true })
+    .then(()=> {
+      return;
+    })
   }
 
   unmarkExecuted(name: string): Promise<void> {
-    return Promise.resolve()
-      .then(() => Migration.deleteOne({ name: name }))
+    return Migration.deleteOne({ name: name })
+    .then(()=> { return } )
   }
 }
-
 export = MongooseAdapter;

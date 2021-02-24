@@ -1,11 +1,11 @@
-import { model, Schema, Model, Document } from 'mongoose';
+import { model, Schema, Document } from 'mongoose';
 
 export interface IMigration extends Document {
   name: string;
 }
 
-const MigrationSchema: Schema = new Schema({
+const MigrationSchema = new Schema({
   name: { type: String, required: true }
 });
 
-export const Migration: Model<IMigration> = model('_Migration', MigrationSchema);
+export const Migration = model<IMigration>('_Migration', MigrationSchema);

@@ -5,7 +5,7 @@ export interface IMigration extends Document {
 }
 
 const MigrationSchema = new Schema({
-  name: { type: String, required: true }
+  name: { type: String, index: true, required: true }
 });
 
 export const Migration = model<IMigration>('_Migration', MigrationSchema);
